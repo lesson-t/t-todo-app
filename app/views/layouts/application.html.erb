@@ -12,6 +12,18 @@
   </head>
 
   <body>
+    <header class="header" >
+      <div class="header_logos">
+        <p class="header_pageTitle">Boards</p>
+      </div>
+      <div class="dropdown">
+        <div class="dropdown-content">
+          <%= link_to 'ユーザ登録', new_user_registration_path %>
+          <%= link_to 'ログイン', user_session_path, data: { method: 'post'} %>
+          <%= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete'} %>
+        </div>
+      </div> 
+    </header>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
