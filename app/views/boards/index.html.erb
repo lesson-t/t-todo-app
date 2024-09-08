@@ -1,1 +1,9 @@
 <h1>HOME</h1>
+<div class="container">
+    <% @boards.each do |board| %>
+        <%= render board, board: board %>
+    <% end %>
+    <%= link_to new_board_path do %>
+        <div class="float_btn" ><i class="fa fa-plus"></i></div>
+    <% end %>
+</div>
