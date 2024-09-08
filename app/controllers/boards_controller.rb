@@ -1,10 +1,12 @@
 class BoardsController < ApplicationController
+    before_action :set_board, only: [:show]
 
     def index
-        # @boards = Boards.all
+        @boards = Board.all
     end
 
     def show
+        
     end
 
     def new
@@ -35,5 +37,7 @@ class BoardsController < ApplicationController
         params.require(:board).permit(:title, :content)
     end
 
-
+    def set_board
+        @board = Board.find(params[:id])
+    end
 end
