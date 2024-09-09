@@ -3,9 +3,15 @@ class ProfilesController < ApplicationController
 
     def show
         @profile = current_user.profile
+        @user = current_user
     end
 
     def edit
+        if current_user.profile.present?
+            @profile = current_user.profile
+        else
+            @profile = current_user.build_profile
+        end
     end
 
     def update

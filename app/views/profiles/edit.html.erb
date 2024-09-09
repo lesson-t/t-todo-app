@@ -1,1 +1,41 @@
 Profile Edit
+<div class="container">
+    <ul>
+        <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+    <%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
+        <div>
+            <%= f.label :nickname, 'nickname' %>
+        </div>
+        <div>
+            <%= f.text_field :nickname, class: 'text' %>
+        </div>
+        <div>
+            <%= f.label :introduction, 'introduction' %>
+        </div>
+        <div>
+            <%= f.text_area :content, class: 'text' %>
+        </div>
+        <div>
+            <%= f.label :gender, 'gender' %>
+        </div>
+        <div>
+            <%= f.select :gender, Profile.genders.keys, {}, { class: 'text' } %>
+        </div>
+        <div>
+            <%= f.label :birthday, 'birthday' %>
+        </div>
+        <div>
+            <%= f.date_field :birthday, class: 'text' %>
+        </div>
+        <div>
+            <%= f.label :subscribe, 'subscribe' %>
+            <%= f.check_box :subscribe %>
+        </div>
+        <div>
+            <%= f.submit 'Submit', class: 'btn-primary' %>
+        </div>
+    <% end %>
+</div>
