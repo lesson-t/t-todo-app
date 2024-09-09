@@ -7,14 +7,18 @@
     <%= form_with model: board, local: true do |f| %>
         <div>
             <%= f.label :title, 'Name' %>
+        </div>
+        <div>
             <%= f.text_field :title %>
         </div>
         <div>
             <%= f.label :content, 'Description' %>
-            <%= f.text_area :content %>
         </div>
         <div>
-            <%= f.submit 'Submit' %>
+            <%= f.text_area :content, class: 'text' %>
+        </div>
+        <div>
+            <%= f.submit 'Submit', class: 'btn-primary' %>
         </div>
     <% end %>
 </div>
