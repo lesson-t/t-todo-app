@@ -1,11 +1,16 @@
 <div class="container profilePage">
     <div class="profilePage_user">
         <div class="profilePage_user_image">
-            <%= image_tag "default-avatar.png" %>
+            <%= image_tag @user.avatar_image %>
         </div>
         <div class="profilePage_user_basicInfo">
             <div class="profilePage_user_name">
-                <div class="profilePage_user_displayName">User_displayName</div>
+                <div class="profilePage_user_displayName">
+                <%= @user.display_name %>
+                (<%= (@user.age || '？歳') %>
+                ・
+                <%= I18n.t("enum.genders.#{@user.gender || 'unknown'}") %>)
+                </div>
                 <div class="profilePage_user_actionButton">
                     <% if @user == current_user %>
                         <%= link_to 'Edit', edit_profile_path %>

@@ -7,6 +7,12 @@ Profile Edit
     </ul>
     <%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
         <div>
+            <%= f.label :avatar, 'avatar' %>
+        </div>
+        <div>
+            <%= f.file_field :avatar %>
+        </div>
+        <div>
             <%= f.label :nickname, 'nickname' %>
         </div>
         <div>
@@ -16,7 +22,7 @@ Profile Edit
             <%= f.label :introduction, 'introduction' %>
         </div>
         <div>
-            <%= f.text_area :content, class: 'text' %>
+            <%= f.text_area :introduction, class: 'text' %>
         </div>
         <div>
             <%= f.label :gender, 'gender' %>
