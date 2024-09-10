@@ -18,3 +18,9 @@
         <%= @board.content %>
     </div>
 </div>
+
+<div class="container">
+    <%= link_to new_board_task_path(@board) do %>
+        <div class="card card_new_board" >+ Add new task</div>
+    <% end %>
+</div>
