@@ -1,9 +1,8 @@
-class Board < ApplicationRecord
-    validates :title, presence: true
-    validates :content, presence: true
-
+class Task < ApplicationRecord
     belongs_to :user
-    has_many :tasks, dependent: :destroy
+    belongs_to :board
+
+    has_one_attached :eyecatch
 
     def display_created_at
         I18n.l(self.created_at, format: :default)
