@@ -19,6 +19,13 @@
     </div>
 </div>
 
+<div class="board">
+    <h2>Tasks</h2>
+    <% @tasks.each do |task| %>
+        <%= render 'task', task: task %>
+    <%end%>
+</div>
+
 <div class="container">
     <%= link_to new_board_task_path(@board) do %>
         <div class="card card_new_board" >+ Add new task</div>

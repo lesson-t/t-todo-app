@@ -1,5 +1,9 @@
 class TasksController < ApplicationController
+    before_action :set_board, only: [:show]
     before_action :authenticate_user!
+
+    def show
+    end
 
     def new
         board = Board.find(params[:board_id])
@@ -35,5 +39,9 @@ class TasksController < ApplicationController
             :deadline,
             :eyecatch
         )
+    end
+
+    def set_task
+        @task = Task.find(params[:id])
     end
 end
