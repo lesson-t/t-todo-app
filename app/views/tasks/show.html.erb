@@ -1,0 +1,26 @@
+Task Show
+<div class="board">
+    <% if @task.eyecatch.attached? %>
+        <div class="card_image">
+            <%= image_tag @task.eyecatch %>
+        </div>
+    <% end %>
+    <h1 class="board_title"><%= @task.title %></h1>
+    <div class="board_detail">
+        <%= image_tag @task.user.avatar_image %>
+        <% if user_signed_in? && current_user.tasks.exists?(@task.id) %>
+            <div class="board_detail_action">
+                <div class="dropdown">
+                    <%= image_tag "actions.svg", class: 'dropbtn' %>
+                    <div class="dropdown-content mini">
+                        <%= link_to 'Edit', edit_board_task_path(@task) %>
+                        <%= link_to 'Delete', board_task_path(@task), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' } %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="board_content">
+        <%= @task.content %>
+    </div>
+</div>

@@ -5,7 +5,7 @@ Tasks Edit
         <li><%= message %></li>
         <% end %>
     </ul>
-    <%= form_with model: @task, local: true do |f| %>
+    <%= form_with(model: @task, url: board_task_path(@task.board, @task), local: true) do |f| %>
         <div>
             <%= f.label :eyecatch, 'eyecatch' %>
         </div>
@@ -16,13 +16,19 @@ Tasks Edit
             <%= f.label :title, 'Name' %>
         </div>
         <div>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, class: 'text' %>
         </div>
         <div>
             <%= f.label :content, 'Description' %>
         </div>
         <div>
             <%= f.text_area :content, class: 'text' %>
+        </div>
+        <div>
+            <%= f.label :deadline, 'Deadline' %>
+        </div>
+        <div>
+            <%= f.datetime_field :deadline %>
         </div>
         <div>
             <%= f.submit 'Submit', class: 'btn-primary' %>

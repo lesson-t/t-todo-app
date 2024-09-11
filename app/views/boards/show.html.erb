@@ -19,12 +19,12 @@
     </div>
 </div>
 
-<div class="board">
-    <h2>Tasks</h2>
-    <% @tasks.each do |task| %>
+<h2>Tasks</h2>
+<% @tasks.each do |task| %>
+    <div class="board">
         <%= render 'task', task: task %>
-    <%end%>
-</div>
+    </div>
+<%end%>
 
 <div class="container">
     <%= link_to new_board_task_path(@board) do %>
