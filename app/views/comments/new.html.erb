@@ -1,1 +1,19 @@
-Comment New
+New Comment
+<div class="container">
+    <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+    <%= form_with(model: @comment, url: board_task_comments_path(@comment.task), local: true) do |f| %>
+        <div>
+            <%= f.label :content, 'Commment' %>
+        </div>
+        <div>
+            <%= f.text_area :content, class: 'text' %>
+        </div>
+        <div>
+            <%= f.submit 'Submit', class: 'btn-primary' %>
+        </div>
+    <% end %>
+</div>
