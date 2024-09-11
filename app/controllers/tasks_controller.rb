@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :set_board, only: [:show]
+    before_action :set_task, only: [:show]
     before_action :authenticate_user!
 
     def show

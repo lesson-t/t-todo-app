@@ -1,18 +1,20 @@
 
-<div class="card">
-    <% if task.eyecatch.attached? %>
-        <div class="card_image">
-            <%= image_tag task.eyecatch %>
-        </div>
-    <% end %>
-    <div class="card_content">
-        <div class="card_title"><%= task.title %></div>
-        <div class="card_detail">
-            <%= image_tag task.user.avatar_image %>
-            <div>
-                <p><%= task.author_name %></p>
-                <p><%= task.display_created_at %></p>
+<%= link_to board_task_path(task.board, task) do %>
+    <div class="card">
+        <% if task.eyecatch.attached? %>
+            <div class="card_image">
+                <%= image_tag task.eyecatch %>
+            </div>
+        <% end %>
+        <div class="card_content">
+            <div class="card_title"><%= task.title %></div>
+            <div class="card_detail">
+                <%= image_tag task.user.avatar_image %>
+                <div>
+                    <p><%= task.author_name %></p>
+                    <p><%= task.display_created_at %></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<% end %>
