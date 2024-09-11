@@ -15,7 +15,7 @@ class TasksController < ApplicationController
         @task = board.tasks.build(task_params)
         @task.user = current_user
         if @task.save
-            redirect_to boards_path(board), notice: 'add Task'
+            redirect_to board_path(board), notice: 'add Task'
         else
             flash.now[:error] = '更新できませんでした'
             render :new
@@ -23,9 +23,17 @@ class TasksController < ApplicationController
     end
 
     def edit
+        @task = current_user.tasks.find(params[:id])
     end
 
     def update
+        @task = current_user.tasks.find(params[:id])
+        if @task.update(task_params)
+            redirect_to board_path(@task.board), notice: 'Update Successful'
+        else
+            flash.now[:error] = 'Update Failed'
+            render :edit
+        end
     end
 
     def destroy

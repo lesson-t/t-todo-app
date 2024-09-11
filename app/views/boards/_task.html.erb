@@ -1,5 +1,10 @@
 
 <div class="card">
+    <% if task.eyecatch.attached? %>
+        <div class="card_image">
+            <%= image_tag task.eyecatch %>
+        </div>
+    <% end %>
     <div class="card_content">
         <div class="card_title"><%= task.title %></div>
         <div class="card_detail">
