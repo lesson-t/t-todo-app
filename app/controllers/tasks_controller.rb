@@ -3,6 +3,7 @@ class TasksController < ApplicationController
     before_action :authenticate_user!
 
     def show
+        @comments = @task.comments
     end
 
     def new

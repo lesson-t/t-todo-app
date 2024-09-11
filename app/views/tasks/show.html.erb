@@ -24,3 +24,25 @@ Task Show
         <%= @task.content %>
     </div>
 </div>
+
+<div class="board">
+    <h2>Comments</h2>
+    <% @comments.each do |comment| %>
+        <div class="board_comment">
+            <div class="board_detail">
+                <% if comment.user.avatar_image.attached? %>
+                    <%= image_tag comment.user.avatar_image, class: 'comment-img' %>
+                <% else %>
+                    <%= image_tag 'default-avatar.png' %>
+                <% end %>
+                <p><%= comment.content %></p>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+<div class="container">
+    <%= link_to new_board_task_comment_path(@task.board_id, @task.id) do %>
+        <div class="card card_new_board" >+ Add new Comment</div>
+    <% end %>
+</div>
