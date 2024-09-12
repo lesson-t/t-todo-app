@@ -7,12 +7,13 @@ $back-icon-size: 16px;
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: $primary-color;
-  padding: $header-padding-y 16px;
+  background-color: white;
+  padding: $header-padding-y 18px;
+  border-bottom: solid 2px $primary-color;
   font-weight: bold;
 
   a {
-    color: white;
+    color: blue;
   }
 
   a.header_loginBtn {
@@ -37,7 +38,7 @@ $back-icon-size: 16px;
   }
 
   &_pageTitle {
-    color: white;
+    color: black;
     line-height: $avatar-size;
     font-size: $font-lg;
   }
